@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<init>
+		<setString result="ConfigRulesKey" value="This is my encryption key"/>
+	</init>
+    
+	<gradleCopies>
+		<copyFile src="$S(BuildDir)/configrules.txt"
+					dst="$S(BuildDir)/gradle/app/configrules.txt"/>
+	</gradleCopies>
+
+	<gradleProperties>
+		<insertValue value="CONFIGRULESTOOL_KEY=$S(ConfigRulesKey)"/>
+		<insertNewline/>
+		<insertValue value="CONFIGRULESTOOL_JAR=$S(AbsEngineDir)/Build/Android/Prebuilt/ConfigRulesTool/bin/ConfigRulesTool.jar"/>
+		<insertNewline/>
+	</gradleProperties>
+	
+	<gameActivityClassAdditions>
+		<insertValue value="public String CONFIGRULES_KEY = &quot;$S(ConfigRulesKey)&quot;;"/>
+		<insertNewline/>
+	</gameActivityClassAdditions>
+
+	<buildGradleAdditions>
+		<insert>
+		<![CDATA[
+task ProcessConfigRules(type: JavaExec) {
+    description 'Produces compressed and encrypted configules.bin.png in assets'
+    inputs.file file('configrules.txt')
+    outputs.file file('src/main/assets/configrules.bin.png')
+    main = "-jar"
+    args = [
+        "${CONFIGRULESTOOL_JAR}",
+        'c',
+        'configrules.txt',
+        'src/main/assets/configrules.bin.png',
+        "${CONFIGRULESTOOL_KEY}"
+    ]
+}
+tasks.whenTaskAdded { task ->
+    if (CONFIGRULESTOOL_JAR != null) {
+        if (task.name == 'assembleRelease') {
+            task.dependsOn 'ProcessConfigRules'
+           }
+        if (task.name == 'assembleDebug') {
+            task.dependsOn 'ProcessConfigRules'
+        }
+    }
+}
+		]]>
+		</insert>
+	</buildGradleAdditions>
+</root>
