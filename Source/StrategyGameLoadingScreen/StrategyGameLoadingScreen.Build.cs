@@ -10,7 +10,7 @@ public class StrategyGameLoadingScreen : ModuleRules
 	{
 		PrivatePCHHeaderFile = "Public/StrategyGameLoadingScreen.h";
 
-		PCHUsage = PCHUsageMode.UseSharedPCHs;
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
         PublicDependencyModuleNames.AddRange(
 			new string[] {

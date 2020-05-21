@@ -8,6 +8,9 @@ public class StrategyGameEditorTarget : TargetRules
 	public StrategyGameEditorTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Editor;
-		ExtraModuleNames.Add("StrategyGame");
+        //DefaultBuildSettings = BuildSettingsVersion.V2;
+        bLegacyPublicIncludePaths = true;
+        //PCHUsage = PCHUsageMode.UseSharedPCHs;
+        ExtraModuleNames.Add("StrategyGame");
 	}
 }

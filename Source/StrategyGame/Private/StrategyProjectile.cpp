@@ -129,7 +129,7 @@ void AStrategyProjectile::PostLoad()
 	// only do this for BP
 	if(IsTemplate() && RootComponent)
 	{
-		RootComponent->RelativeRotation = FRotator::ZeroRotator;
-		RootComponent->RelativeLocation = FVector::ZeroVector;
+		RootComponent->SetRelativeRotation(FRotator::ZeroRotator);
+		RootComponent->SetRelativeLocation(FVector::ZeroVector);
 	}
 }

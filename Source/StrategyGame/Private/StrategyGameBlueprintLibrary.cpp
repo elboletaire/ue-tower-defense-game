@@ -124,7 +124,7 @@ void UStrategyGameBlueprintLibrary::ToggleMinionVisibility(AStrategyChar* InMini
 	if (InMinionChar)
 	{
 		InMinionChar->SetActorEnableCollision(!InMinionChar->GetActorEnableCollision());
-		InMinionChar->SetActorHiddenInGame(!InMinionChar->bHidden);
+		InMinionChar->SetActorHiddenInGame(!InMinionChar->IsHidden());
 	}
 }
 
