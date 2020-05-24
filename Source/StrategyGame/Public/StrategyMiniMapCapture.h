@@ -50,7 +50,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=AudioListener)
 	float AudioListenerGroundLevel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=AudioListener)	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=AudioListener)
 	bool bUseAudioListenerOrientation;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=AudioListener)

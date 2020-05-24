@@ -11,32 +11,32 @@ UStrategyAIAction::UStrategyAIAction(const FObjectInitializer& ObjectInitializer
 {
 }
 
-bool UStrategyAIAction::Tick(float DeltaTime) 
-{ 
-	return false; 
-}
-
-bool UStrategyAIAction::ShouldActivate() const 
-{ 
-	return false; 
-}
-
-void UStrategyAIAction::Abort() 
+bool UStrategyAIAction::Tick(float DeltaTime)
 {
-	bIsExecuted = false; 
+	return false;
 }
 
-bool UStrategyAIAction::IsSafeToAbort() const 
-{ 
-	return true; 
+bool UStrategyAIAction::ShouldActivate() const
+{
+	return false;
+}
+
+void UStrategyAIAction::Abort()
+{
+	bIsExecuted = false;
+}
+
+bool UStrategyAIAction::IsSafeToAbort() const
+{
+	return true;
 }
 
 void UStrategyAIAction::Activate()
-{ 		
-	bIsExecuted = true; 
+{
+	bIsExecuted = true;
 }
 
 void UStrategyAIAction::SetController(AStrategyAIController* InOwner)
-{ 
-	MyAIController = InOwner; 
+{
+	MyAIController = InOwner;
 }

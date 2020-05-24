@@ -24,25 +24,25 @@ class AStrategyGameMode : public AGameModeBase
 
 	/** Name of the difficulty param on the URL options string. */
 	static const FString DifficultyOptionName;
-	
+
 	// Begin GameMode interface
 
 	/** Initialize the GameState actor. */
 	virtual void InitGameState() override;
 
-	/** 
-	 * Handle new player, skips pawn spawning. 
-	 * @param NewPlayer	
+	/**
+	 * Handle new player, skips pawn spawning.
+	 * @param NewPlayer
 	 */
 	virtual void RestartPlayer(AController* NewPlayer) override;
-	
-	/** 
+
+	/**
 	 * Modify the damage we want to apply to an actor.
-	 * 
+	 *
 	  * @param Damage			The damage
 	  * @param DamagedActor		The actor we wish to damage
 	  * @param DamageEvent		The event that caused the damage
-	  * @param EventInstigator	
+	  * @param EventInstigator
 	  * @param DamageCauser
 	  *
 	  * @returns The adjusted damage amount
@@ -51,7 +51,7 @@ class AStrategyGameMode : public AGameModeBase
 
 	// End GameMode interface
 
-	/** 
+	/**
 	 * Finish the game with selected team as winner.
 	 *
 	 * @param	InWinningTeam		The team that has won.
@@ -61,8 +61,8 @@ class AStrategyGameMode : public AGameModeBase
 
 	void ReturnToMenu();
 
-	/** 
-	 * Helper function to test teams (null = not in friendly team). 
+	/**
+	 * Helper function to test teams (null = not in friendly team).
 	 *
 	 * @param ActorA		First actor to test against
 	 * @param ActorB		Second actor to test against
@@ -71,14 +71,14 @@ class AStrategyGameMode : public AGameModeBase
 	 */
 	static bool OnFriendlyTeam(const AActor* ActorA, const AActor* ActorB);
 
-	/** 
-	 * Helper function to test teams (null = not in friendly team). 
+	/**
+	 * Helper function to test teams (null = not in friendly team).
 	 *
 	 * @param ActorA		First actor to test against
 	 * @param ActorB		Second actor to test against
 	 *
 	 * @return true if the two actors are on opposing teams.
-	 */	
+	 */
 	static bool OnEnemyTeam(const AActor* ActorA, const AActor* ActorB);
 
 	/** Helper method for UI, to exit game. */
@@ -94,5 +94,3 @@ protected:
 	/** Handle for efficient management of UpdateHealth timer */
 	FTimerHandle TimerHandle_ReturnToMenu;
 };
-
-

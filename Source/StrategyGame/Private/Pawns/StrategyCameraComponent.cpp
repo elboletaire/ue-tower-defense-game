@@ -28,9 +28,9 @@ void UStrategyCameraComponent::OnZoomOut()
 }
 
 void UStrategyCameraComponent::GetCameraView(float DeltaTime, FMinimalViewInfo& OutResult)
-{	
+{
 	APlayerController* Controller = GetPlayerController();
-	if( Controller ) 
+	if (Controller)
 	{
 		OutResult.FOV = 30.f;
 		const float CurrentOffset = MinCameraOffset + ZoomAlpha * (MaxCameraOffset - MinCameraOffset);
@@ -60,7 +60,7 @@ void UStrategyCameraComponent::UpdateCameraMovement( const APlayerController* In
 		const uint32 ViewRight = ViewLeft + FMath::TruncToInt(LocalPlayer->Size.X * ViewportSize.X);
 		const uint32 ViewTop = FMath::TruncToInt(LocalPlayer->Origin.Y * ViewportSize.Y);
 		const uint32 ViewBottom = ViewTop + FMath::TruncToInt(LocalPlayer->Size.Y * ViewportSize.Y);
-		
+
 		const float MaxSpeed = CameraScrollSpeed * FMath::Clamp(ZoomAlpha, 0.3f, 1.0f);
 
 		AStrategyGameState const* const MyGameState = GetWorld()->GetGameState<AStrategyGameState>();
@@ -159,7 +159,7 @@ void UStrategyCameraComponent::MoveRight(float Val)
 
 			// transform to world space and add it
 			OwnerPawn->AddMovementInput(WorldSpaceAccel, Val);
-		}	
+		}
 	}
 }
 
@@ -169,7 +169,7 @@ void UStrategyCameraComponent::AddNoScrollZone( FBox InCoords )
 }
 
 void UStrategyCameraComponent::ClampCameraLocation( const APlayerController* InPlayerController, FVector& OutCameraLocation )
-{	
+{
 	if (bShouldClampCamera)
 	{
 		UpdateCameraBounds(InPlayerController);
@@ -266,7 +266,7 @@ void UStrategyCameraComponent::OnPinchUpdate(UStrategyInput* InputHandler, const
 	const float CurrentDistance = (ScreenPosition1 - ScreenPosition2).Size();
 	const float PinchDelta = AnchorDistance - CurrentDistance;
 	const float PinchScale = CVarPinchScale.GetValueOnGameThread();
-	
+
 	SetZoomLevel(InitialPinchAlpha + PinchDelta * PinchScale);
 }
 
@@ -276,7 +276,7 @@ void UStrategyCameraComponent::SetCameraTarget(const FVector& CameraTarget)
 	if( SpectatorPawn != NULL )
 	{
 		SpectatorPawn->SetActorLocation(CameraTarget, false);
-	}	
+	}
 }
 
 void UStrategyCameraComponent::SetZoomLevel(float NewLevel)

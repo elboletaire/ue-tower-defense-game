@@ -11,7 +11,7 @@ class UStrategyAIAction : public UObject
 {
 	GENERATED_UCLASS_BODY()
 
-	/** 
+	/**
 	 * Update this action.
 	 * @return false to finish this action, true to continue
 	 */

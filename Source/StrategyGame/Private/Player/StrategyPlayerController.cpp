@@ -11,7 +11,7 @@
 #include "StrategyInputInterface.h"
 
 
-AStrategyPlayerController::AStrategyPlayerController(const FObjectInitializer& ObjectInitializer) 
+AStrategyPlayerController::AStrategyPlayerController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, bIgnoreInput(false)
 {
@@ -61,7 +61,7 @@ void AStrategyPlayerController::GetAudioListenerPosition(FVector& OutLocation, F
 			const FPlane GroundPlane = FPlane(FVector(0,0,GroundLevel), FVector::UpVector);
 			ULocalPlayer* const MyPlayer = Cast<ULocalPlayer>(Player);
 
-			// @todo: once PlayerCamera is back in, we can just get the ray origin and dir from that instead of 
+			// @todo: once PlayerCamera is back in, we can just get the ray origin and dir from that instead of
 			// needing to deproject. will be much simpler.
 			FVector RayOrigin, RayDirection;
 			FVector2D const ScreenCenterPoint = ScreenRes * 0.5f;
@@ -99,7 +99,7 @@ void AStrategyPlayerController::UpdateRotation(float DeltaTime)
 	{
 		PlayerCameraManager->ProcessViewRotation(DeltaTime, ViewRotation, DeltaRot);
 	}
-	
+
 	SetControlRotation(ViewRotation);
 }
 
@@ -111,11 +111,11 @@ void AStrategyPlayerController::ProcessPlayerInput(const float DeltaTime, const 
 	}
 
 	Super::ProcessPlayerInput(DeltaTime, bGamePaused);
-		
+
 	if (!bIgnoreInput )
 	{
 		const ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>(Player);
-		AStrategySpectatorPawn* StrategyPawn = GetStrategySpectatorPawn();		
+		AStrategySpectatorPawn* StrategyPawn = GetStrategySpectatorPawn();
 		if(( StrategyPawn != NULL ) && ( LocalPlayer != NULL ))
 		{
 			// Create the bounds for the minimap so we can add it as a 'no scroll' zone.
@@ -136,12 +136,12 @@ void AStrategyPlayerController::ProcessPlayerInput(const float DeltaTime, const 
 					StrategyPawn->GetStrategyCameraComponent()->UpdateCameraMovement( this );
 				}
 			}
-		}		
+		}
 	}
 }
 
 void AStrategyPlayerController::SetCameraTarget(const FVector& CameraTarget)
-{	
+{
 	if (GetCameraComponent() != NULL)
 	{
 		GetCameraComponent()->SetCameraTarget(CameraTarget);
@@ -186,7 +186,7 @@ void AStrategyPlayerController::SetSelectedActor(AActor* NewSelectedActor, const
 				SelectedActor = NULL;
 			}
 		}
-		
+
 		if ( !SelectedActor.IsValid() )
 		{
 			// attempt to select new selection
@@ -205,7 +205,7 @@ void AStrategyPlayerController::OnTapPressed(const FVector2D& ScreenPosition, fl
 {
 	FVector WorldPosition(0.f);
 	AActor* const HitActor = GetFriendlyTarget(ScreenPosition, WorldPosition);
-	
+
 	SetSelectedActor(HitActor, WorldPosition);
 
 	if (HitActor && HitActor->GetClass()->ImplementsInterface(UStrategyInputInterface::StaticClass()) )
@@ -321,7 +321,7 @@ void AStrategyPlayerController::OnSwipeTwoPointsUpdate(const FVector2D& ScreenPo
 	if (GetSpectatorPawn())
 	{
 		GetSpectatorPawn()->AddMovementInput(WorldSpaceAccel, 1.f);
-	}	
+	}
 
 	PrevSwipeMidPoint = SwipeMidPoint;
 }

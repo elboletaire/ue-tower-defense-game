@@ -72,7 +72,7 @@ class AStrategyBuilding : public AActor,
 	// End StrategyTeamInterface interface
 
 	/** set team number */
-	virtual void SetTeamNum(uint8 NewTeamNum); 
+	virtual void SetTeamNum(uint8 NewTeamNum);
 
 	//////////////////////////////////////////////////////////////////////////
 	// Touch
@@ -179,7 +179,7 @@ protected:
 	/** if construction is finished, any build actions are repairs (cheaper) */
 	UPROPERTY(EditInstanceOnly, Category=Building)
 	uint8 bIsContructionFinished : 1;
-	
+
 	/** list of possible upgrades */
 	UPROPERTY(EditDefaultsOnly, Category=Building)
 	TArray<TSubclassOf<AStrategyBuilding> > Upgrades;
@@ -208,7 +208,7 @@ protected:
 	//////////////////////////////////////////////////////////////////////////
 	// UI
 
-	/** display action menu for building */	
+	/** display action menu for building */
 	virtual void ShowActionMenu();
 
 	/** hide action menu for building */
@@ -257,5 +257,3 @@ protected:
 	/** Returns TriggerBox subobject **/
 	FORCEINLINE UBoxComponent* GetTriggerBox() const { return TriggerBox; }
 };
-
-

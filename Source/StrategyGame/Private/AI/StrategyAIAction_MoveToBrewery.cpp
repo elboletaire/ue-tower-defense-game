@@ -116,7 +116,7 @@ void UStrategyAIAction_MoveToBrewery::OnPathUpdated(INavigationPathGenerator* Pa
 
 	if (inType != EPathUpdate::Update)
 	{
-		UE_VLOG(MyAIController.Get(), LogStrategyAI, Log, TEXT("WARRNING, OnPathUpdated with error - PathUpdateTyp %d"), int32(inType)); 
+		UE_VLOG(MyAIController.Get(), LogStrategyAI, Log, TEXT("WARRNING, OnPathUpdated with error - PathUpdateTyp %d"), int32(inType));
 		Abort();
 	}
 }

@@ -108,7 +108,7 @@ bool AStrategyBuilding_Brewery::ReplaceBuilding(TSubclassOf<AStrategyBuilding> N
 		RetVal = RightSlot->ReplaceBuilding(NewBuildingClass, &NewBuilding);
 		Upgrades.Remove( *NewBuildingClass );
 	}
-	
+
 	if (NewBuilding)
 	{
 		NewBuilding->BuildFinishedDelegate.BindUObject(this, &AStrategyBuilding_Brewery::OnConstructedBuilding);

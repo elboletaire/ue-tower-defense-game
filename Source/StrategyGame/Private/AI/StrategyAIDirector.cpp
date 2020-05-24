@@ -212,8 +212,8 @@ void UStrategyAIDirector::SpawnMinions()
 		}
 		else
 		{
-			// If we dont have a class type we cannot spawn a minion. 
-			UE_LOG(LogGame, Warning, TEXT("No minion class specified in %s. Cannot spawn minion"), *Owner->GetName() );			
+			// If we dont have a class type we cannot spawn a minion.
+			UE_LOG(LogGame, Warning, TEXT("No minion class specified in %s. Cannot spawn minion"), *Owner->GetName() );
 		}
 		// If we failed to spawn a minion try again soon
 		if( bSpawnedNewMinion == false )

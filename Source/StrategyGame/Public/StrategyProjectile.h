@@ -93,5 +93,3 @@ public:
 	/** Returns CollisionComp subobject **/
 	FORCEINLINE USphereComponent* GetCollisionComp() const { return CollisionComp; }
 };
-
-

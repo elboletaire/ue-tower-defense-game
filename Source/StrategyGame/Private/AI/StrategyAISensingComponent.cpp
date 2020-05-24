@@ -3,7 +3,7 @@
 #include "StrategyGame.h"
 #include "StrategyAISensingComponent.h"
 
-UStrategyAISensingComponent::UStrategyAISensingComponent(const FObjectInitializer& ObjectInitializer) 
+UStrategyAISensingComponent::UStrategyAISensingComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	SensingInterval = 0.2f;

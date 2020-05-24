@@ -35,7 +35,7 @@ public:
 
 	/** Handles the mouse scrolling up. */
 	void OnMouseScrollDown();
-	
+
 	/* Returns a pointer to the strategy camera component the pawn has. */
 	UStrategyCameraComponent* GetStrategyCameraComponent();
 };

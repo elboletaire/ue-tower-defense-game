@@ -37,7 +37,7 @@ public:
 	virtual void PostInitializeComponents() override;
 	// End HUD interface
 
-	/** 
+	/**
 	 * Clears out the old widgets, rebuilds them
 	 *
 	 * @param	bHotRelead	Not used.
@@ -56,7 +56,7 @@ private:
 	/** Selected game difficulty. */
 	TEnumAsByte<EGameDifficulty::Type> Difficulty;
 
-	/** 
+	/**
 	 * Helper for adding menu items .
 	 *
 	 * @param	SubMenu	The item to add.
@@ -67,8 +67,8 @@ private:
 	/** Callback for quit button. */
 	void ExecuteQuitAction();
 
-	/** 
-	 * Callback for start button. 
+	/**
+	 * Callback for start button.
 	 *
 	 * @param	Action	Action to take. (Should be EMenuAction type)
 	 */

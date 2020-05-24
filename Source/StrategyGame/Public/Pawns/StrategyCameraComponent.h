@@ -22,43 +22,43 @@ public:
 
 	/** Handle zooming out. */
 	void OnZoomOut();
-	
+
 	/*
 	 * Update the mouse controlled camera movement.
-	 * 
+	 *
 	 * @param	InPlayerController		The relevant player controller.
 	 */
 	void UpdateCameraMovement( const APlayerController* InPlayerController );
-	
+
 	/*
 	 * Move the camera on the forward axis
-	 * 
+	 *
 	 * @param	Val		Amount to move
 	 */
 	void MoveForward( float Val );
-	
+
 	/*
 	 * Move the camera on the left/right axis
-	 * 
+	 *
 	 * @param	Val		Amount to move
 	 */
 	void MoveRight( float Val );
-	
+
 	/*
 	 * Exclude an area from the mouse scroll movement update. (This will be reset at the end of each update).
-	 * 
+	 *
 	 * @param	InCoords
 	 */
 	void AddNoScrollZone( FBox InCoords );
-	
+
 	/*
 	 * CLamp the Camera location.
-	 * 
+	 *
 	 * @param	InPlayerController	The player controller relative to this component.
 	 * @param	OutCameraLocation	Structure to receive the clamped coordinates.
 	 */
 	void ClampCameraLocation( const APlayerController* InPlayerController, FVector& OutCameraLocation );
-	
+
 	/** The minimum offset of the camera. */
 	UPROPERTY(config)
 	float MinCameraOffset;
@@ -102,16 +102,16 @@ public:
 	uint8 bShouldClampCamera : 1;
 
 	/*
-	 * Handle the start of a 'pinch'. 
+	 * Handle the start of a 'pinch'.
 	 *
 	 * @param	AnchorPosition1		First Anchor position.
 	 * @param	AnchorPosition2		Second Anchor position.
 	 * @param	DownTime			Time pressed.
 	 */
 	void OnPinchStarted(const FVector2D& AnchorPosition1, const FVector2D& AnchorPosition2, float DownTime);
-	
-	/** Handle the start of a 'pinch'. 
-	 * 
+
+	/** Handle the start of a 'pinch'.
+	 *
 	 * @param	InputHandler		The unput handler related to this pinch.
 	 * @param	AnchorPosition1		First Anchor position.
 	 * @param	AnchorPosition2		Second Anchor position.
@@ -133,7 +133,7 @@ public:
 	 * @returns	true if the swipe was handled and we begun a swipe/drag
 	 */
 	bool OnSwipeStarted(const FVector2D& SwipePosition);
-		
+
 	/*
 	 * Handle the update of a swipe/drag
 	 *
@@ -173,10 +173,10 @@ private:
 
 	/* List of zones to exclude from scrolling during the camera movement update. */
 	TArray<FBox>	NoScrollZones;
-	
+
 	/** Initial Zoom alpha when starting pinch. */
 	float InitialPinchAlpha;
-	
+
 	/** Current amount of camera zoom. */
 	float ZoomAlpha;
 

@@ -28,7 +28,7 @@ void AStrategySpectatorPawn::OnMouseScrollDown()
 void AStrategySpectatorPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	check(PlayerInputComponent);
-	
+
 	PlayerInputComponent->BindAction("ZoomOut", IE_Pressed, this, &AStrategySpectatorPawn::OnMouseScrollUp);
 	PlayerInputComponent->BindAction("ZoomIn", IE_Pressed, this, &AStrategySpectatorPawn::OnMouseScrollDown);
 
@@ -53,4 +53,3 @@ UStrategyCameraComponent* AStrategySpectatorPawn::GetStrategyCameraComponent()
 	check( StrategyCameraComponent != NULL );
 	return StrategyCameraComponent;
 }
-

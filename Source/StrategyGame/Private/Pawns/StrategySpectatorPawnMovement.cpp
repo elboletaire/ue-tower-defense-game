@@ -44,4 +44,3 @@ void UStrategySpectatorPawnMovement::TickComponent(float DeltaTime, enum ELevelT
 		UpdatedComponent->SetWorldLocation(MyLocation, false);
 	}
 }
-

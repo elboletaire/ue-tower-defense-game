@@ -12,7 +12,7 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_UCLASS_BODY()
 
-	/** 
+	/**
 	 * Are the two actors on the same team.
 	 *
 	 * @param Actor1	First actor to compare.
@@ -23,7 +23,7 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 	 UFUNCTION(BlueprintPure, Category=Game)
 	static bool AreFriends(AActor* Actor1, AActor* Actor2);
 
-	/** 
+	/**
 	 * Are the two actors on different teams.
 	 *
 	 * @param Actor1	First actor to compare.
@@ -34,7 +34,7 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintPure, Category=Game)
 	static bool AreEnemies(AActor* Actor1, AActor* Actor2);
 
-	/** 
+	/**
 	 * Spawn a projectile.
 	 *
 	 * @param ProjectileBlueprint	The blueprint of the projectile to spawn.
@@ -56,7 +56,7 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 		const FVector& SpawnLocation, const FVector& ShootDirection, TEnumAsByte<EStrategyTeam::Type> OwnerTeam, int32 ImpactDamage, float LifeSpan=10.0f, class AStrategyBuilding* InOwner = NULL);
 
 
-	/** 
+	/**
 	 * Adds buff for specified strategy character.
 	 *
 	 * @param InChar			The strategy character to apply the buff values
@@ -72,13 +72,13 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 	 *
 	 * @returns true if the actors are on different teams.
 	 */
-	
+
 	UFUNCTION(BlueprintCallable, Category=Pawn)
 	static void GiveBuff(class AStrategyChar* InChar,
 		int32 AttackMin = 5, int32 AttackMax = 10, int32 DamageReduction = 0, int32 MaxHealthBonus = 0, int32 HealthRegen = 10, float Speed = 0.0f, float Duration=30.0f, bool bInfiniteDuration=false, int32 AttackDistance = 10 );
 
-	/** 
-	 * Give a weapon to specified strategy character. 
+	/**
+	 * Give a weapon to specified strategy character.
 	 *
 	 * @param InChar	The Strategy character to give the weapon to.
 	 * @param Armor		The weapon to give the to the character.
@@ -89,29 +89,29 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category=Pawn)
 	static void GiveWeaponFromClass(AStrategyChar* InChar, TSubclassOf<class UStrategyAttachment> WeaponClass);
 
-	/** 
-	 * Give armor to specified strategy character. 
+	/**
+	 * Give armor to specified strategy character.
 	 *
 	 * @param InChar	The Strategy character to give the armor to.
 	 * @param Armor		The armor to give the to the character.
 	 */
 	UFUNCTION(BlueprintCallable, Category=Pawn, meta=(DeprecatedFunction, DeprecationMessage="Use GiveArmorFromClass"))
 	static void GiveArmor(class AStrategyChar* InChar, UBlueprint* Armor);
-	
+
 	UFUNCTION(BlueprintCallable, Category=Pawn)
 	static void GiveArmorFromClass(AStrategyChar* InChar, TSubclassOf<class UStrategyAttachment> ArmorClass);
 
-	/** 
-	 * Toggle visibility of specified minion. 
+	/**
+	 * Toggle visibility of specified minion.
 	 *
 	 * @param InMinionChar	The minion to toggle the visibilty of.
-	 */	
+	 */
 	UFUNCTION(BlueprintCallable, Category=Pawn)
 	static void ToggleMinionVisibility(class AStrategyChar* InMinionChar);
 
-	/** 
-	 * Remove specified minion. 
-	 * 
+	/**
+	 * Remove specified minion.
+	 *
 	 * @param InMinionChar	The minion to remove.
 	 */
 	UFUNCTION(BlueprintCallable, Category=Pawn)
@@ -121,9 +121,9 @@ class UStrategyGameBlueprintLibrary : public UBlueprintFunctionLibrary
 	UFUNCTION(BlueprintCallable, Category=Game, meta=(WorldContext="WorldContextObject", DeprecatedFunction, DeprecationMessage="Please use ShowWaveTitle instead"))
 	static void ShowTitle(class UObject* WorldContextObject, FString LocKey);
 
-	/** 
-	 * Display the wave title. 
-	 * 
+	/**
+	 * Display the wave title.
+	 *
 	 * @param WaveNumber	The Wave number to show the title for.
 	 */
 	UFUNCTION(BlueprintCallable, Category=Game, meta=(WorldContext="WorldContextObject"))

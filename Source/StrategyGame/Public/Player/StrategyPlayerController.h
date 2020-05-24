@@ -7,7 +7,7 @@
 
 class AStrategySpectatorPawn;
 class UStrategyCameraComponent;
-	
+
 UCLASS()
 class AStrategyPlayerController : public APlayerController, public IStrategyTeamInterface
 {
@@ -29,7 +29,7 @@ public:
 	// Begin StrategyTeamInterface interface
 	virtual uint8 GetTeamNum() const override;
 	// End StrategyTeamInterface interface
-	
+
 	/** set desired camera position. */
 	void SetCameraTarget(const FVector& CameraTarget);
 
@@ -56,7 +56,7 @@ public:
 
 	/** Handler for mouse pressed over minimap. */
 	void MousePressedOverMinimap();
-	
+
 	/** Handler for mouse release over minimap. */
 	void MouseReleasedOverMinimap();
 
@@ -79,15 +79,15 @@ protected:
 	UPROPERTY()
 	class UStrategyInput* InputHandler;
 
-	/** 
-	 * Change current selection (on toggle on the same). 
+	/**
+	 * Change current selection (on toggle on the same).
 	 *
 	 * @param	NewFocus	Actor to focus on.
-	 * @param	NewPosition	
+	 * @param	NewPosition
 	 */
 	void SetSelectedActor(AActor* NewFocus, const FVector& NewPosition);
 
-	/** 
+	/**
 	 * Get friendly target under screen space coordinates.
 	 *
 	 * @param	ScreenPoint	Screen coordinates to check
@@ -95,19 +95,19 @@ protected:
 	 */
 	AActor* GetFriendlyTarget(const FVector2D& ScreenPoint, FVector& WorldPoint) const;
 
-	/** 
+	/**
 	 * Get audio listener position and orientation.
-	 * 
-	 * @param	
-	 * @param	
-	 * @param	
+	 *
+	 * @param
+	 * @param
+	 * @param
 	 */
 	virtual void GetAudioListenerPosition(FVector& Location, FVector& FrontDir, FVector& RightDir);
 
 private:
-	/** Helper to return cast version of Spectator pawn. */		
+	/** Helper to return cast version of Spectator pawn. */
 	AStrategySpectatorPawn* GetStrategySpectatorPawn() const;
-	
+
 	/** Helper to return camera component via spectator pawn. */
 	UStrategyCameraComponent* GetCameraComponent() const;
 };

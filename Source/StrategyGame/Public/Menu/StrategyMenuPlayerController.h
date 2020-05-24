@@ -19,4 +19,3 @@ protected:
 
 	virtual void SetupInputComponent() override;
 };
-

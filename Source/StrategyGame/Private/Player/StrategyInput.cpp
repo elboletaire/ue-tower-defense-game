@@ -4,7 +4,7 @@
 #include "StrategyInput.h"
 
 
-UStrategyInput::UStrategyInput(const FObjectInitializer& ObjectInitializer) 
+UStrategyInput::UStrategyInput(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, PrevTouchState(0)
 {
@@ -123,7 +123,7 @@ void UStrategyInput::DetectOnePointActions(bool bCurrentState, bool bPrevState, 
 	}
 	else
 	{
-		// just released? 
+		// just released?
 		if (bPrevState)
 		{
 			// tap detection
@@ -161,7 +161,7 @@ void UStrategyInput::DetectTwoPointsActions(bool bCurrentState, bool bPrevState,
 {
 	const float MaxSwipeDistance = 150.0f;			// swipe only if initial distance is lower
 	const float PinchDistanceThreshold = 150.0f;		// don't break pinch if distance exceeded threshold
-	const float PinchMoveThreshold = 50.0f;			// break pinch if midpoint moved further from initial spot 
+	const float PinchMoveThreshold = 50.0f;			// break pinch if midpoint moved further from initial spot
 
 	bTwoPointsTouch = bCurrentState;
 	if (bCurrentState)
@@ -266,4 +266,3 @@ FVector2D UStrategyInput::GetTouchAnchor(int32 i) const
 {
 	return (i >= 0 && i < ARRAY_COUNT(TouchAnchors)) ? TouchAnchors[i] : FVector2D::ZeroVector;
 }
-

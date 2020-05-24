@@ -36,7 +36,7 @@ void AStrategyMiniMapCapture::BeginPlay()
 	AStrategyGameState* const MyGameState = GetWorld()->GetGameState<AStrategyGameState>();
 	if( MyGameState != nullptr )
 	{
-		MyGameState->MiniMapCamera = this; 
+		MyGameState->MiniMapCamera = this;
 	}
 	CachedFOV =  GetCaptureComponent2D()->FOVAngle;
 	CachedLocation =  RootComponent->GetComponentLocation();
@@ -46,7 +46,7 @@ void AStrategyMiniMapCapture::BeginPlay()
 void AStrategyMiniMapCapture::UpdateWorldBounds()
 {
 	AStrategyGameState* const MyGameState = GetWorld()->GetGameState<AStrategyGameState>();
-	if( MyGameState != nullptr )	
+	if( MyGameState != nullptr )
 	{
 		TArray<FVector> Points;
 		FVector const CamLocation = RootComponent->GetComponentLocation();

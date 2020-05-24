@@ -14,4 +14,3 @@ public:
 	virtual APawn* SpawnDefaultPawnFor_Implementation(AController* NewPlayer, class AActor* StartSpot) override;
 	// End GameMode interface
 };
-

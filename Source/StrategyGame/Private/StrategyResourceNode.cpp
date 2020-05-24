@@ -4,7 +4,7 @@
 #include "StrategyResourceNode.h"
 
 
-AStrategyResourceNode::AStrategyResourceNode(const FObjectInitializer& ObjectInitializer) 
+AStrategyResourceNode::AStrategyResourceNode(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, NumResources(100)
 {

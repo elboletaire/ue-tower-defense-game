@@ -8,7 +8,7 @@
 #include "StrategySelectionInterface.h"
 
 
-AStrategyBuilding::AStrategyBuilding(const FObjectInitializer& ObjectInitializer) 
+AStrategyBuilding::AStrategyBuilding(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, Cost(0)
 	, BuildTime(10)
@@ -173,7 +173,7 @@ void AStrategyBuilding::SetTeamNum(uint8 NewTeamNum)
 
 FPlayerData* AStrategyBuilding::GetTeamData() const
 {
-	check( GetWorld() );	
+	check( GetWorld() );
 	AStrategyGameState* const StrategyGame = GetWorld()->GetGameState<AStrategyGameState>();
 	if( StrategyGame != nullptr )
 	{
@@ -214,12 +214,12 @@ void AStrategyBuilding::ShowActionMenu()
 						UpgradeAction->Widget->DeferredShow();
 						UpgradeAction->Data.ActionCost = DefBuilding->GetBuildingCost(World);
 						UpgradeAction->Data.TriggerDelegate.BindUObject(this, &AStrategyBuilding::ReplaceBuilding, UpgradeList[i]);
-					
+
 						if (DefBuilding->BuildingIcon != nullptr)
 						{
 							UpgradeAction->Data.StrButtonText = FText::GetEmpty();
 							UpgradeAction->Widget->SetImage(DefBuilding->BuildingIcon);
-						} 
+						}
 						else
 						{
 							UpgradeAction->Widget->SetImage(MyHUD->DefaultActionTexture);

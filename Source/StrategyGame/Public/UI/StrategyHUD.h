@@ -18,9 +18,9 @@ public:
 	/** Returns true if the "Pause" Menu up. */
 	bool IsPauseMenuUp() const;
 
-	/** 
+	/**
 	 * Hides all the action buttons.
-	 * 
+	 *
 	 * @param bInstantHide	Whether to hide immediately or defer
 	 */
 	void HideAllActionButtons(bool bInstantHide=false);
@@ -28,7 +28,7 @@ public:
 	/** clears any pending actions (blinking button state) */
 	void ClearActionRequiredStates();
 
-	/** 
+	/**
 	 * Gets single action button data.
 	 *
 	 * @param	Index	Index of the button to get the info for.
@@ -63,7 +63,7 @@ public:
 
 	/** minimap frustum points */
 	FVector2D MiniMapPoints[4];
-	
+
 	/** current UI scale */
 	float UIScale;
 
@@ -81,7 +81,7 @@ protected:
 	/** draw number of lives for player */
 	void DrawLives() const;
 
-	/** 
+	/**
 	 * Draws health bar for specific actor.
 	 *
 	 * @param	ForActor	Actor for which the health bar is for.
@@ -145,4 +145,3 @@ protected:
 	/** if we are currently drawing black screen */
 	uint8 bBlackScreenActive : 1;
 };
-

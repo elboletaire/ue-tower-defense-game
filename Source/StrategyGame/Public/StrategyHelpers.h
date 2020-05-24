@@ -27,7 +27,7 @@ public:
 namespace MenuHelper
 {
 
-	template< class UserClass >	
+	template< class UserClass >
 	FORCEINLINE FTimerHandle PlaySoundAndCall(UWorld* World, const FSlateSound& Sound, UserClass* inObj, typename FStrategyMenuItem::FOnConfirmMenuItem::TUObjectMethodDelegate< UserClass >::FMethodPtr inMethod)
 	{
 		FSlateApplication::Get().PlaySound(Sound);
@@ -39,7 +39,7 @@ namespace MenuHelper
 		return Result;
 	}
 
-	template< class UserClass >	
+	template< class UserClass >
 	FORCEINLINE FTimerHandle PlaySoundAndCallSP(UWorld* World, const FSlateSound& Sound, UserClass* inObj, typename FStrategyMenuItem::FOnConfirmMenuItem::TSPMethodDelegate< UserClass >::FMethodPtr inMethod)
 	{
 		FSlateApplication::Get().PlaySound(Sound);
@@ -51,7 +51,7 @@ namespace MenuHelper
 		return Result;
 	}
 
-	template< class UserClass >	
+	template< class UserClass >
 	FORCEINLINE FTimerHandle PlaySoundAndCallSP(UWorld* World, const FSlateSound& Sound, UserClass* inObj, typename FStrategyMenuItem::FOnConfirmMenuItem::TSPMethodDelegate_Const< UserClass >::FMethodPtr inMethod)
 	{
 		FSlateApplication::Get().PlaySound(Sound);

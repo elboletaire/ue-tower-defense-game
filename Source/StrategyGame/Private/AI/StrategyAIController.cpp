@@ -13,7 +13,7 @@
 DEFINE_LOG_CATEGORY(LogStrategyAI);
 
 /*
- * Main AI Controller class 
+ * Main AI Controller class
  */
 AStrategyAIController::AStrategyAIController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -34,7 +34,7 @@ struct FPlayerData* AStrategyAIController::GetTeamData() const
 void AStrategyAIController::OnPossess(APawn* inPawn)
 {
 	Super::OnPossess(inPawn);
-	
+
 	/** Create instances of our possible actions */
 	AllActions.Reset();
 	for(int32 Idx=0; Idx < AllowedActions.Num(); Idx++ )
@@ -222,7 +222,7 @@ void AStrategyAIController::SelectTarget()
 		}
 	}
 
-	UE_VLOG(this, LogStrategyAI, Log, TEXT("Selected target: %s"), CurrentTarget != NULL ? *CurrentTarget->GetName() : TEXT("NONE") ); 
+	UE_VLOG(this, LogStrategyAI, Log, TEXT("Selected target: %s"), CurrentTarget != NULL ? *CurrentTarget->GetName() : TEXT("NONE") );
 }
 
 void AStrategyAIController::ClaimAsTarget(TWeakObjectPtr<AStrategyAIController> InController)
@@ -280,7 +280,7 @@ void AStrategyAIController::Tick(float DeltaTime)
 
 	if (CurrentAction != NULL && !CurrentAction->Tick(DeltaTime) && CurrentAction->IsSafeToAbort() )
 	{
-		UE_VLOG(this, LogStrategyAI, Log, TEXT("Break on '%s' action after Update"), *CurrentAction->GetName()); 
+		UE_VLOG(this, LogStrategyAI, Log, TEXT("Break on '%s' action after Update"), *CurrentAction->GetName());
 		CurrentAction->Abort();
 		CurrentAction = NULL;
 	}
@@ -300,14 +300,14 @@ void AStrategyAIController::Tick(float DeltaTime)
 			{
 				if (CurrentAction != NULL)
 				{
-					UE_VLOG(this, LogStrategyAI, Log, TEXT("Break on '%s' action, found better one '%s'"), *CurrentAction->GetName(), *AllActions[Idx]->GetName()); 
+					UE_VLOG(this, LogStrategyAI, Log, TEXT("Break on '%s' action, found better one '%s'"), *CurrentAction->GetName(), *AllActions[Idx]->GetName());
 					CurrentAction->Abort();
 				}
 
 				CurrentAction = AllActions[Idx];
 				if (CurrentAction != NULL)
 				{
-					UE_VLOG(this, LogStrategyAI, Log, TEXT("Execute on '%s' action"), *CurrentAction->GetName(), *AllActions[Idx]->GetName()); 
+					UE_VLOG(this, LogStrategyAI, Log, TEXT("Execute on '%s' action"), *CurrentAction->GetName(), *AllActions[Idx]->GetName());
 					CurrentAction->Activate();
 					break;
 				}
@@ -323,9 +323,9 @@ void AStrategyAIController::EnableLogic(bool bEnable)
 	bLogicEnabled = bEnable;
 }
 
-bool AStrategyAIController::IsLogicEnabled() const		
-{ 
-	return bLogicEnabled; 
+bool AStrategyAIController::IsLogicEnabled() const
+{
+	return bLogicEnabled;
 }
 
 FVector AStrategyAIController::GetAdjustLocation()
@@ -379,5 +379,3 @@ void AStrategyAIController::UnregisterBumpEventDelegate()
 {
 	OnNotifyBumpDelegate.Unbind();
 }
-
-

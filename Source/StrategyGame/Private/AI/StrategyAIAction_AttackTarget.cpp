@@ -76,15 +76,15 @@ void UStrategyAIAction_AttackTarget::MoveCloser()
 	{
 		return;
 	}
-		
+
 	TargetDestination = TargetActor->GetActorLocation();
 	AStrategyChar* const MyChar = Cast<AStrategyChar>(MyAIController->GetPawn());
 	if( MyChar == nullptr )
 	{
-		UE_LOG(LogStrategyAI, Warning, TEXT("Invalid Char/Pawn in Move Closer")); 
+		UE_LOG(LogStrategyAI, Warning, TEXT("Invalid Char/Pawn in Move Closer"));
 		return;
 	}
-	
+
 	check(MyChar->GetPawnData());
 
 	const float AttackDistance = MyChar->GetPawnData()->AttackDistance;
@@ -92,7 +92,7 @@ void UStrategyAIAction_AttackTarget::MoveCloser()
 
 	if (Dist > AttackDistance)
 	{
-		UE_VLOG(MyAIController.Get(), LogStrategyAI, Log, TEXT("Let's move closer")); 
+		UE_VLOG(MyAIController.Get(), LogStrategyAI, Log, TEXT("Let's move closer"));
 		bMovingToTarget = true;
 		MyAIController->MoveToActor(TargetActor.Get(), 0.9 * AttackDistance);
 	}

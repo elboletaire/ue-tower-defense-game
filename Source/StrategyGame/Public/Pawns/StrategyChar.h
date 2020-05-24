@@ -65,8 +65,8 @@ public:
 	// End StrategyTeamInterface interface
 
 
-	/** 
-	 * Starts melee attack. 
+	/**
+	 * Starts melee attack.
 	 * @return Duration of the attack anim.
 	 */
 	float PlayMeleeAnim();
@@ -89,7 +89,7 @@ public:
 	bool IsArmorAttached();
 
 	/** set team number */
-	void SetTeamNum(uint8 NewTeamNum); 
+	void SetTeamNum(uint8 NewTeamNum);
 
 	/** adds active buff to this pawn */
 	void ApplyBuff(const struct FBuffData& Buff);
@@ -116,7 +116,7 @@ protected:
 	/** death anim */
 	UPROPERTY(EditDefaultsOnly, Category=Pawn)
 	UAnimMontage* DeathAnim;
-	
+
 	/** Armor attachment slot */
 	UPROPERTY()
 	UStrategyAttachment* ArmorSlot;

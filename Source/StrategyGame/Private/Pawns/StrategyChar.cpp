@@ -4,8 +4,8 @@
 #include "StrategyAIController.h"
 #include "StrategyAttachment.h"
 
-AStrategyChar::AStrategyChar(const FObjectInitializer& ObjectInitializer) 
-	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCharacterMovementComponent>(ACharacter::CharacterMovementComponentName)) 
+AStrategyChar::AStrategyChar(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer.SetDefaultSubobjectClass<UCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 	, ResourcesToGather(10)
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -151,8 +151,8 @@ void AStrategyChar::Die(float KillingDamage, FDamageEvent const& DamageEvent, AC
 	Health = FMath::Min(0.0f, Health);
 
 	// figure out who killed us
-	UDamageType const* const DamageType = DamageEvent.DamageTypeClass ? 
-		Cast<const UDamageType>(DamageEvent.DamageTypeClass->GetDefaultObject()) 
+	UDamageType const* const DamageType = DamageEvent.DamageTypeClass ?
+		Cast<const UDamageType>(DamageEvent.DamageTypeClass->GetDefaultObject())
 		: GetDefault<UDamageType>();
 	Killer = GetDamageInstigator(Killer, *DamageType);
 
@@ -195,14 +195,14 @@ void AStrategyChar::Die(float KillingDamage, FDamageEvent const& DamageEvent, AC
 	if (Controller != nullptr)
 	{
 		Controller->UnPossess();
-	}	
+	}
 
 	// play death animation
 	float DeathAnimDuration = 0.f;
 	if (DeathAnim)
 	{
 		DeathAnimDuration = PlayAnimMontage(DeathAnim) / ( GetMesh() && GetMesh()->GlobalAnimRateScale > 0 ? GetMesh()->GlobalAnimRateScale : 1);
-		UAnimInstance * AnimInstance = (GetMesh())? GetMesh()->GetAnimInstance() : nullptr; 
+		UAnimInstance * AnimInstance = (GetMesh())? GetMesh()->GetAnimInstance() : nullptr;
 	}
 
 	// Use a local timer handle as we don't need to store it for later but we don't need to look for something to clear
@@ -333,7 +333,7 @@ void AStrategyChar::UpdatePawnData()
 
 		ActiveBuffs[i].ApplyBuff(NewPawnData);
 	}
-	
+
 	// add influence of any attachments
 	UStrategyAttachment* const InvSlots[] = { WeaponSlot, ArmorSlot };
 	for (int32 i = 0; i < ARRAY_COUNT(InvSlots); i++)
@@ -403,4 +403,3 @@ int32 AStrategyChar::GetMaxHealth() const
 {
 	return GetClass()->GetDefaultObject<AStrategyChar>()->GetHealth() + ModifiedPawnData.MaxHealthBonus;
 }
-

@@ -3,7 +3,7 @@
 #include "StrategyGame.h"
 #include "StrategyProjectile.h"
 
-AStrategyProjectile::AStrategyProjectile(const FObjectInitializer& ObjectInitializer) 
+AStrategyProjectile::AStrategyProjectile(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 	, Building(NULL)
 	, ConstantDamage(false)
@@ -37,7 +37,7 @@ void AStrategyProjectile::InitProjectile(const FVector& Direction, uint8 InTeamN
 {
 	MovementComp->OnProjectileStop.AddDynamic(this, &AStrategyProjectile::OnHit);
 	MovementComp->Velocity = MovementComp->InitialSpeed * Direction;
-	
+
 	MyTeamNum = InTeamNum;
 	RemainingDamage = ImpactDamage;
 	SetLifeSpan( InLifeSpan );
@@ -113,7 +113,7 @@ uint8 AStrategyProjectile::GetTeamNum() const
 
 void AStrategyProjectile::FellOutOfWorld(const UDamageType& dmgType)
 {
-	// If we fall out of the world we need to follow the same chain of events as if we hit something. BUT the blueprint destroys us so we dont wanna do that 
+	// If we fall out of the world we need to follow the same chain of events as if we hit something. BUT the blueprint destroys us so we dont wanna do that
 	// instead turn off what we need too and call the destroyed event and let the blueprint do what it needs to.
 	// (This isn't an ideal way of doing this !)
 	DisableComponentsSimulatePhysics();

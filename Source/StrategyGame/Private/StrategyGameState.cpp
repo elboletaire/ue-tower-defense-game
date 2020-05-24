@@ -39,7 +39,7 @@ void AStrategyGameState::OnCharDied(AStrategyChar* InChar)
 {
 	if ( InChar && (InChar->GetTeamNum() == EStrategyTeam::Enemy) )
 	{
-		PlayersData[EStrategyTeam::Player].ResourcesAvailable += InChar->ResourcesToGather;		
+		PlayersData[EStrategyTeam::Player].ResourcesAvailable += InChar->ResourcesToGather;
 		RemoveChar(InChar);
 	}
 }

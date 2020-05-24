@@ -4,7 +4,7 @@
 	<init>
 		<setString result="ConfigRulesKey" value="This is my encryption key"/>
 	</init>
-    
+
 	<gradleCopies>
 		<copyFile src="$S(BuildDir)/configrules.txt"
 					dst="$S(BuildDir)/gradle/app/configrules.txt"/>
@@ -16,7 +16,7 @@
 		<insertValue value="CONFIGRULESTOOL_JAR=$S(AbsEngineDir)/Build/Android/Prebuilt/ConfigRulesTool/bin/ConfigRulesTool.jar"/>
 		<insertNewline/>
 	</gradleProperties>
-	
+
 	<gameActivityClassAdditions>
 		<insertValue value="public String CONFIGRULES_KEY = &quot;$S(ConfigRulesKey)&quot;;"/>
 		<insertNewline/>

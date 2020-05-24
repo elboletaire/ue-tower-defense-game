@@ -30,7 +30,7 @@ public:
 	SLATE_BEGIN_ARGS(SStrategyLoadingScreen) {}
 	SLATE_END_ARGS()
 
-	
+
 	void Construct(const FArguments& InArgs)
 	{
 		static const FName LoadingScreenName(TEXT("/Game/UI/MainMenu/StrategyGame_LoadingScreen.StrategyGame_LoadingScreen"));
@@ -70,7 +70,7 @@ private:
 		bool Vis =  GetMoviePlayer()->IsLoadingFinished();
 		return GetMoviePlayer()->IsLoadingFinished() ? EVisibility::Collapsed : EVisibility::Visible;
 	}
-	
+
 	/** loading screen image brush */
 	TSharedPtr<FSlateDynamicImageBrush> LoadingScreenBrush;
 };
@@ -88,7 +88,7 @@ public:
 			CreateScreen();
 		}
 	}
-	
+
 	virtual bool IsGameModule() const override
 	{
 		return true;

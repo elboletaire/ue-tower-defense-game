@@ -74,7 +74,7 @@ float AStrategyGameMode::ModifyDamage(float Damage, AActor* DamagedActor, struct
 	{
 		return 0.0f;
 	}
-	
+
 	if (Damage > 0.f)
 	{
 		const IStrategyTeamInterface* VictimTeam = Cast<IStrategyTeamInterface>(DamagedActor);
@@ -156,8 +156,3 @@ void AStrategyGameMode::ExitGame()
 		PlayerController->ConsoleCommand(TEXT("quit"));
 	}
 }
-
-
-
-
-

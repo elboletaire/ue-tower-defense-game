@@ -9,10 +9,10 @@ class UStrategyCheatManager : public UCheatManager
 {
 	GENERATED_UCLASS_BODY()
 
-	/** 
+	/**
 	 * Give the player gold.
 	 *
-	 * @param NewGold	The amount of gold to add to the players gold. 
+	 * @param NewGold	The amount of gold to add to the players gold.
 	 */
 	UFUNCTION(exec)
 	void AddGold(uint32 NewGold);

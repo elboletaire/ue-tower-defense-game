@@ -40,7 +40,7 @@ public:
 
 	//////////////////////////////////////////////////////////////////////////
 	// reading data
-	
+
 	/** amount of resources left in node */
 	int32 GetAvailableResources() const;
 

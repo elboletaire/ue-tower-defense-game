@@ -90,4 +90,3 @@ protected:
 	/** Brewery of my biggest enemy */
 	TWeakObjectPtr<AStrategyBuilding_Brewery> EnemyBrewery;
 };
-

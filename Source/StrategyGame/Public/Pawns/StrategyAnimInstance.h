@@ -10,7 +10,7 @@ class UStrategyAnimInstance : public UAnimInstance
 {
 	GENERATED_UCLASS_BODY()
 
-	/** 
+	/**
 	 *  Notify pawn of the impact.
 	 *
 	 * @param Notify		The AnimNotify instance that triggered this notification.

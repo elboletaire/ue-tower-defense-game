@@ -66,7 +66,7 @@ AStrategyProjectile* UStrategyGameBlueprintLibrary::SpawnProjectile(UObject* Wor
 	const FVector& SpawnLocation, const FVector& ShootDirection, TEnumAsByte<EStrategyTeam::Type> OwnerTeam, int32 ImpactDamage, float LifeSpan, AStrategyBuilding* InOwner)
 {
 	return SpawnProjectileFromClass(
-		WorldContextObject, 
+		WorldContextObject,
 		ProjectileBlueprint ? *ProjectileBlueprint->GeneratedClass : nullptr,
 		SpawnLocation, ShootDirection, OwnerTeam, ImpactDamage, LifeSpan, InOwner);
 }
@@ -133,7 +133,7 @@ bool UStrategyGameBlueprintLibrary::RemoveMinion(AStrategyChar* InMinionChar)
 	if (InMinionChar)
 	{
 		return InMinionChar->Destroy();
-	} 
+	}
 	else
 	{
 		return false;
