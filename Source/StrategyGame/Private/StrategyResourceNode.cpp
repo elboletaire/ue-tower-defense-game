@@ -14,7 +14,7 @@ AStrategyResourceNode::AStrategyResourceNode(const FObjectInitializer& ObjectIni
 
 void AStrategyResourceNode::OnInputTap_Implementation()
 {
-	if ( !bHidden && (NumResources > 0) )
+	if ( !(AActor::IsHidden()) && (NumResources > 0) )
 	{
 		AStrategyGameState* const MyGameState = GetWorld()->GetGameState<AStrategyGameState>();
 		FPlayerData* const TeamData = MyGameState ? MyGameState->GetPlayerData(EStrategyTeam::Player) : NULL;

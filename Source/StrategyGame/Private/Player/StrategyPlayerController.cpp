@@ -17,7 +17,7 @@ AStrategyPlayerController::AStrategyPlayerController(const FObjectInitializer& O
 {
 	CheatClass = UStrategyCheatManager::StaticClass();
 	PrimaryActorTick.bCanEverTick = true;
-	bHidden = false;
+	SetHidden(false);
 	bShowMouseCursor = true;
 }
 

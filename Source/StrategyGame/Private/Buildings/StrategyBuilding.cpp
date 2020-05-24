@@ -30,17 +30,20 @@ AStrategyBuilding::AStrategyBuilding(const FObjectInitializer& ObjectInitializer
 	RootComponent = TranslationComp;
 
 	TriggerBox = CreateDefaultSubobject<UBoxComponent>(TEXT("Box"));
-	TriggerBox->bVisible = true;
+	TriggerBox->SetVisibility(true);
+	//TriggerBox->bVisible = true;
 	TriggerBox->bHiddenInGame = true;
 	TriggerBox->CastShadow = false;
 	TriggerBox->InitBoxExtent(FVector(512, 128, 128));
-	TriggerBox->RelativeLocation = FVector(512, 0, 128);
+	TriggerBox->SetRelativeLocation(FVector(512, 0, 128));
+	//TriggerBox->RelativeLocation = FVector(512, 0, 128);
 	TriggerBox->BodyInstance.SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	TriggerBox->BodyInstance.SetResponseToAllChannels(ECR_Ignore);
 	TriggerBox->BodyInstance.SetResponseToChannel(ECC_Pawn, ECR_Overlap);
 	TriggerBox->SetupAttachment(RootComponent);
 
-	bCanBeDamaged = false;
+	SetCanBeDamaged(false);
+	//bCanBeDamaged = false;
 
 	static ConstructorHelpers::FObjectFinder<USoundCue> StartCueObj(TEXT("/Game/Sounds/Interactive_Objects/Building_ConstructionStart_Cue"));
 	ConstructionStartStinger = StartCueObj.Object;
@@ -55,8 +58,8 @@ void AStrategyBuilding::PostLoad()
 	// only do this for BP
 	if(IsTemplate() && RootComponent)
 	{
-		RootComponent->RelativeRotation = FRotator::ZeroRotator;
-		RootComponent->RelativeLocation = FVector::ZeroVector;
+		RootComponent->SetRelativeRotation(FRotator::ZeroRotator);
+		RootComponent->SetRelativeLocation(FVector::ZeroVector);
 	}
 }
 

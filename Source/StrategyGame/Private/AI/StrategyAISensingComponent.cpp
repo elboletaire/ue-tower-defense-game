@@ -24,7 +24,7 @@ void UStrategyAISensingComponent::InitializeComponent()
 bool UStrategyAISensingComponent::ShouldCheckVisibilityOf(APawn *Pawn) const
 {
 	AStrategyChar* const TestChar = Cast<AStrategyChar>(Pawn);
-	return TestChar != nullptr && !TestChar->bHidden && TestChar->GetHealth() > 0 && AStrategyGameMode::OnEnemyTeam(Pawn, GetOwner());
+	return TestChar != nullptr && !TestChar->IsHidden() && TestChar->GetHealth() > 0 && AStrategyGameMode::OnEnemyTeam(Pawn, GetOwner());
 }
 
 bool UStrategyAISensingComponent::CanSenseAnything() const
